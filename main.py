@@ -141,11 +141,12 @@ def train_nn(sess, epochs, batch_size, get_batches_fn, train_op, cross_entropy_l
                                             learning_rate: param.LEARNING_RATE})
 
         print("Current run time: %s" % str(time.time() - start))
-        print("Epoch: {}".format(epoch), "of {}".format(epochs), "current loss is: {:.2f}".format(loss))
+        print("Epoch: %s / %s" %(epoch, epochs))
+        # print("Loss: {:.3f}".format(loss))
 
 
 
-print("Start test training module ... ")/
+print("Start test training module ... ")
 tests.test_train_nn(train_nn)
 
 
