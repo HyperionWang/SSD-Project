@@ -1,6 +1,64 @@
 # Semantic Segmentation
+
+[//]: # (Image References)
+[image1]: ./docs/VGG_FCN.png
+[image2]: ./runs/1527143741.7427516/um_000000.png
+[image3]: ./runs/1527143741.7427516/um_000018.png
+[image4]: ./runs/1527143741.7427516/um_000030.png
+[image5]: ./runs/1527143741.7427516/uu_000003.png
+[image6]: ./runs/1527143741.7427516/uu_000096.png
+
 ### Introduction
-In this project, you'll label the pixels of a road in images using a Fully Convolutional Network (FCN).
+In this project, The fully convolution network (FCN) is trained and used to label the pixels of a road in images using a Fully Convolutional Network (FCN).
+
+The VGG16 architechture is used and FCN is connected following the VGG to have the pixel by pixel labeling.
+
+### Implementations
+
+FCN-8s with VGG16 is used. The network connection is as following:
+
+![alt text][image1]
+
+The data set used to train and test is Kitti Road dataset.
+
+The test on the VGG Model loading, layer test, optimizer test, and netwrok training are all passed.
+
+The following paramters are used to train the FCN:
+
+    L2_REG = 1e-4
+    KEEP_PROB = 0.5
+    LEARNING_RATE = 1e-4
+    EPOCHS = 100
+    BATCH_SIZE = 16
+    IMAGE_SIZE = (160, 576)
+    NUM_CLASSES = 2
+    Optimizer = Adam
+
+
+The PC platform is using NVIDIA GTX1080 Ti.
+The loss at the starting point is 8.5, and after the 70th epoch, the loss is around 0.16. And the final loss after 100 epoches is 0.083.
+
+### Results
+
+The final results could be found in the runs/1527143741.7427516
+
+Some images of labeling using the trained model:
+
+![alt text][image2]
+
+![alt text][image3]
+
+![alt text][image4]
+
+![alt text][image5]
+
+![alt text][image6]
+
+
+### Summary:
+
+The implemented FCN with VGG16 model is trained and valided using the road image data set. And according to the final testing results, the model is able to label most pixels of roads close to the best solution. And the error of the result is reasonably low.
+
 
 ### Setup
 ##### GPU

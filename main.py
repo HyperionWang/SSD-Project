@@ -26,7 +26,7 @@ class HyperParamters:
         self.KEEP_PROB = 0.5
         self.LEARNING_RATE = 1e-4
         self.EPOCHS = 100
-        self.BATCH_SIZE = 8
+        self.BATCH_SIZE = 16
         self.IMAGE_SIZE = (160, 576)
         self.NUM_CLASSES = 2
 
@@ -61,7 +61,7 @@ def load_vgg(sess, vgg_path):
 print('Start to load VGG Model...')
 
 
-# tests.test_load_vgg(load_vgg, tf)
+tests.test_load_vgg(load_vgg, tf)
 
 
 def layers(vgg_layer3_out, vgg_layer4_out, vgg_layer7_out, num_classes):
@@ -98,7 +98,7 @@ def layers(vgg_layer3_out, vgg_layer4_out, vgg_layer7_out, num_classes):
 print('Start to test the layer')
 
 
-# tests.test_layers(layers)
+tests.test_layers(layers)
 
 
 def optimize(nn_last_layer, correct_label, learning_rate, num_classes):
@@ -121,7 +121,7 @@ def optimize(nn_last_layer, correct_label, learning_rate, num_classes):
 print("Start the optimizer ... ")
 
 
-# tests.test_optimize(optimize)
+tests.test_optimize(optimize)
 
 
 def train_nn(sess, epochs, batch_size, get_batches_fn, train_op, cross_entropy_loss, input_image,
